@@ -1,0 +1,28 @@
+package main;
+
+import java.util.*;
+
+public class GamePlayer {
+
+	List<Player> playerList;
+	Board board;
+	Deque<Player> playerTurnList;
+	
+	public GamePlayer(List<Player> list, Board board) {
+		this.playerList = list;
+		this.board = board;
+	}
+	
+	public void startGame() {
+		System.out.println("Let's start the Game.");
+		this.playerTurnList = new ArrayDeque<>();
+		for(Player player: this.playerList) {
+			playerTurnList.add(player);
+		}
+		Player playerTurn = playerTurnList.removeFirst();
+		while(true) {
+			System.out.println("Enter the index where you want to put " + playerTurn.piece.)
+		}
+	}
+	
+}

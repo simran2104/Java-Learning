@@ -1,0 +1,22 @@
+package ShapeFactoryHandler;
+
+import Shapes.Circle;
+import Shapes.Shapes;
+import Shapes.Square;
+
+public class ShapeFactoryHandler {
+	public void getShape(String input) {
+		Shapes shape;
+		
+		switch(input) {
+			case "CIRCLE": 
+				shape = new Circle();
+				shape.draw();
+			case "SQUARE":
+				shape = new Square();
+				shape.draw();
+			default:
+				System.out.println("Different Shape.");
+			}
+	}
+}

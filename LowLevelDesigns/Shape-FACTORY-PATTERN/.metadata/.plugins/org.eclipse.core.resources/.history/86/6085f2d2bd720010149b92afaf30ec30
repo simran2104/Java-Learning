@@ -1,0 +1,9 @@
+package ShapeFactoryHandler;
+
+import Shapes.Circle;
+import Shapes.Shapes;
+import Shapes.Square;
+
+public class ShapeFactoryHandler {
+	
+}

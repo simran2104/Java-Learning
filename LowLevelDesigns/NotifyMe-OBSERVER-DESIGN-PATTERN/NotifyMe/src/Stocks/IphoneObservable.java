@@ -1,0 +1,40 @@
+package Stocks;
+import java.util.*;
+import NotificateAlert.NotificationAlertObserver;
+
+public class IphoneObservable implements StockObservables {
+	List<NotificationAlertObserver> listOfObservers = new ArrayList<>();
+	int currentStockCount = 0;
+	
+	@Override
+	public void add(NotificationAlertObserver obj) {
+		listOfObservers.add(obj);
+	}
+
+	@Override
+	public void remove(NotificationAlertObserver obj) {
+		listOfObservers.remove(obj);
+	}
+
+	@Override
+	public void notifySubscribers() {
+		for(NotificationAlertObserver obj: listOfObservers) {
+			obj.update();
+		}
+	}
+
+	@Override
+	public void setStockCount(int newStockCount) {
+		if(currentStockCount != newStockCount) {
+			currentStockCount = newStockCount;
+			notifySubscribers();
+		}
+		
+	}
+
+	@Override
+	public int getStockCount() {
+		return currentStockCount;
+	}
+	
+}

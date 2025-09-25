@@ -1,0 +1,5 @@
+package vehicleFactory;
+
+public interface VehicleFactory {
+	public void geteVehicle(String input);
+}

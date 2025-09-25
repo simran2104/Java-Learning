@@ -1,0 +1,13 @@
+package main;
+
+public class Board {
+	int rowLength;
+	int colLength;
+	PlayingPiece[][] board;
+	
+	public Board(int rowLength, int colLength) {
+		this.rowLength = rowLength;
+		this.colLength = colLength;
+		this.board = new PlayingPiece[rowLength][colLength];
+	}
+}

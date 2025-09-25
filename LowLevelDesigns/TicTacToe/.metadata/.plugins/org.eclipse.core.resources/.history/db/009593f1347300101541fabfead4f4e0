@@ -1,0 +1,27 @@
+package main;
+
+import java.util.*;
+
+public class GamePlayer {
+
+	List<Player> playerList;
+	Board board;
+	Deque<Player> playerTurn;
+	
+	public GamePlayer(List<Player> list, Board board) {
+		this.playerList = list;
+		this.board = board;
+		this.playerTurn = new ArrayDeque<>();
+		for(Player player: this.playerList) {
+			playerTurn.add(player);
+		}
+	}
+	
+	public void startGame() {
+		System.out.println("Let's start the Game.");
+		
+		Player playerTurn = playerTurn.removeFirst();
+		
+	}
+	
+}

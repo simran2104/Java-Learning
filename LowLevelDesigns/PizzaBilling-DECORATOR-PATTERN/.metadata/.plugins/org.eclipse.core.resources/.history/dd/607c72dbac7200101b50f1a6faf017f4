@@ -1,0 +1,13 @@
+package PizzaBillingHandler;
+
+import BasePizza.BasePizza;
+import BasePizza.FarmHouse;
+import BasePizza.VegDelight;
+import Toppings.ExtraCheese;
+
+public class PizzaBillingHandler {
+	BasePizza pizza1 = new VegDelight();
+	BasePizza pizza2 = new ExtraCheese(new FarmHouse());
+	
+	
+}

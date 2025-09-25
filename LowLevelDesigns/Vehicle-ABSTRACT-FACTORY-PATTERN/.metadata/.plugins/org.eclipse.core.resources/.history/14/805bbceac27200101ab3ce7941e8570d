@@ -1,0 +1,7 @@
+package luxuryVehicleFactory;
+import vehicleFactory.VehicleFactory;
+import vehicles.Bmw;
+
+public class LuxuryVehicle extends Bmw, Marcedes {
+	
+}

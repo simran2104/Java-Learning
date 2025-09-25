@@ -1,0 +1,8 @@
+package Stocks;
+import java.util.*;
+
+public class IphoneObservable {
+	List<NotificationAlertObserver> listOfObservers = new ArrayList<>();
+	
+	
+}

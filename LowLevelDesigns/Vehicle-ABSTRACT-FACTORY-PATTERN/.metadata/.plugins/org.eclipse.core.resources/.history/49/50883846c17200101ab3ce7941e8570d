@@ -1,0 +1,7 @@
+package ordinaryVehicleFactory;
+
+import vehicleFactory.VehicleFactory;
+
+public class OrdinaryVehicle implements VehicleFactory{
+
+}

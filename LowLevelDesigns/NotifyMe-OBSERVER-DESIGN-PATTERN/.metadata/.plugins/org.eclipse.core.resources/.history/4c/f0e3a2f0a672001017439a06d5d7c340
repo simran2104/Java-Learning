@@ -1,0 +1,24 @@
+package NotifyHandler;
+import Stocks.IphoneObservable;
+import Stocks.StockObservables;
+import NotificateAlert.EmailAlertObserver;
+import NotificateAlert.MobileAlertObserver;
+import NotificateAlert.NotificationAlertObserver;
+
+public class NotifyHandler {
+	public static void main(String args[]) {
+		StockObservables stocksAlert = new IphoneObservable();
+		
+		System.out.println("Hey");
+		
+		NotificationAlertObserver observer1 = new EmailAlertObserver(stocksAlert, "simran@gmail.com");
+		NotificationAlertObserver observer2 = new EmailAlertObserver(stocksAlert, "rahul@gmail.com");
+		NotificationAlertObserver observer3 = new MobileAlertObserver(stocksAlert, "88980979868");
+		
+		stocksAlert.add(observer1);
+		stocksAlert.add(observer2);
+		stocksAlert.add(observer3);
+		
+		stocksAlert.setStockCount(10);
+	}
+}

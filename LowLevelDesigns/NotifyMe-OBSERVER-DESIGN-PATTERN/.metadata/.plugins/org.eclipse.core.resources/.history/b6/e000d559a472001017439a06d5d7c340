@@ -1,0 +1,5 @@
+package NotificateAlert;
+
+public class EmailAlertObserver {
+
+}

@@ -1,0 +1,17 @@
+package Toppings;
+
+import BasePizza.BasePizza;
+
+public class ExtraCheese extends Toppings{
+	BasePizza basePizza;
+	
+	public ExtraCheese(BasePizza basePizza) {
+		this.basePizza = basePizza;
+	}
+	
+	@Override
+	public int Cost() {
+		return 10;
+	}
+
+}

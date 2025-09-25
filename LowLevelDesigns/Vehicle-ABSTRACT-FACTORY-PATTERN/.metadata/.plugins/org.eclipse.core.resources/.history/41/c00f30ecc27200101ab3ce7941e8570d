@@ -1,0 +1,5 @@
+package luxuryVehicleFactory;
+import vehicles.Bmw;
+
+public class LuxuryVehicle extends Bmw {	
+}

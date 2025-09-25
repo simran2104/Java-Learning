@@ -1,0 +1,4 @@
+INDEX VERSION 1.134+H:\Learning\SystemDesign\LowLevelDesign\PizzaBilling-DECORATOR-PATTERN\.metadata\.plugins\org.eclipse.jdt.core
+1695736766.index
+582329991.index
+1865797976.index

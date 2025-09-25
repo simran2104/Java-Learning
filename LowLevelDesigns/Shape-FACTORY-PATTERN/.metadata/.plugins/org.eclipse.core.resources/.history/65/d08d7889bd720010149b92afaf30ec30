@@ -1,0 +1,16 @@
+package ShapeFactoryHandler;
+
+import Shapes.Circle;
+import Shapes.Shapes;
+
+public class ShapeFactoryHandler {
+	public void getShape(String input) {
+		Shapes shape = new Shapes();
+		
+		switch(input) {
+			case "CIRCLE": 
+				shape = new Circle();
+				
+			}
+	}
+}

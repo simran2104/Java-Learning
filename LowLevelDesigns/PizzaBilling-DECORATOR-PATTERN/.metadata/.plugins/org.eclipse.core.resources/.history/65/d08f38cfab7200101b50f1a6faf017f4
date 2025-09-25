@@ -1,0 +1,5 @@
+package Toppings;
+
+public abstract class Toppings {
+
+}

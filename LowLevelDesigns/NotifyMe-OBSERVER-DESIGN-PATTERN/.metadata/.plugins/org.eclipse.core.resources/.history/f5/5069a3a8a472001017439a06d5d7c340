@@ -1,0 +1,20 @@
+package NotificateAlert;
+
+import Stocks.StockObservables;
+
+public class EmailAlertObserver implements NotificationAlertObserver{
+	
+	StockObservables observable;
+	String email;
+
+	@Override
+	public void update() {
+		
+		
+	}
+	
+	public void sendEmail(String emailId, String msg) {
+		System.out.println("Message: " + msg+ " is send on email Id: " + emailId);
+	}
+
+}

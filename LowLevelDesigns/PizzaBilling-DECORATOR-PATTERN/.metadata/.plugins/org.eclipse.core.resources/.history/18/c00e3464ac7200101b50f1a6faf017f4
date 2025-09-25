@@ -1,0 +1,10 @@
+package Toppings;
+
+public class ExtraCheese extends Toppings{
+
+	@Override
+	public int Cost() {
+		return 10;
+	}
+
+}

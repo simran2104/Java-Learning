@@ -1,0 +1,35 @@
+package main;
+
+public class Board {
+	int rowLength;
+	int colLength;
+	PlayingPiece[][] board;
+	
+	int count = 0;
+	
+	public Board(int rowLength, int colLength) {
+		this.rowLength = rowLength;
+		this.colLength = colLength;
+		this.board = new PlayingPiece[rowLength][colLength];
+	}
+	
+	public boolean addPieces(int rowIndex, int colIndex, PlayingPiece piece) {
+		if(isFreeSpace(rowIndex, colIndex)) {
+			board[rowIndex][colIndex] = piece;
+			return true;
+		} 
+		return false;
+	}
+	
+	private boolean isFreeSpace(int rowIndex, int colIndex) {
+		if(board[rowIndex][colIndex] == null) return true;
+		return false;
+	}
+	
+	public boolean isWinner() {
+		
+		boolean isWinner = false;
+		
+		
+	}
+}

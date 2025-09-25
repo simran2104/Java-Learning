@@ -1,0 +1,10 @@
+package Toppings;
+
+public class Mushroom extends Toppings{
+
+	@Override
+	public int Cost() {
+		return 5;
+	}
+
+}

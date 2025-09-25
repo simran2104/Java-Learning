@@ -1,0 +1,10 @@
+package main;
+
+public class PlayingPiece {
+	enum PieceType {
+		X,
+		O,
+	}
+	PieceType type;
+	
+}

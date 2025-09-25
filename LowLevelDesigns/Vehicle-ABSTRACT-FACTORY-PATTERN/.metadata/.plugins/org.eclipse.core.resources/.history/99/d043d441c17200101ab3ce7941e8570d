@@ -1,0 +1,5 @@
+package ordinaryVehicleFactory;
+
+public class OrdinaryVehicle implements VehicleFactory{
+
+}

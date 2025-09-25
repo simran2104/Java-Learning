@@ -1,0 +1,7 @@
+package main;
+
+public class Board {
+	int rowLength;
+	int colLength;
+	PlayingPiece[][] board;
+}

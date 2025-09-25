@@ -1,0 +1,45 @@
+package main;
+
+import java.util.*;
+
+public class GamePlayer {
+
+	List<Player> playerList;
+	Board board;
+	Deque<Player> playerTurnList;
+	
+	public GamePlayer(List<Player> list, Board board) {
+		this.playerList = list;
+		this.board = board;
+		this.playerTurnList = new ArrayDeque<>();
+		for(Player player: this.playerList) {
+			playerTurnList.add(player);
+		}
+	}
+	
+	public void startGame() {
+		System.out.println("Let's start the Game.");
+		Scanner sc = new Scanner(System.in);
+		boolean winner = false;
+		while(true) {
+			Player playerTurn = playerTurnList.removeFirst();
+			System.out.println("Enter the index where you want to put " + playerTurn.name);
+			int rowIndex = sc.nextInt();
+			int colIndex = sc.nextInt();
+	
+			this.board.addPieces(rowIndex, colIndex, playerTurn.piece);
+			
+			if(this.board.isWinner()) {
+				System.out.println(playerTurn.name +" is Winner!");
+				winner = tru;
+				break;
+			}
+			if(!this.board.isFreeSpace(rowIndex, colIndex)) {
+				break;
+			}
+		}
+		
+		System.out.println("Match got tie!");
+	}
+	
+}

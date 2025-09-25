@@ -1,0 +1,6 @@
+package luxuryVehicleFactory;
+import vehicleFactory.VehicleFactory;
+
+public class LuxuryVehicle implements VehicleFactory{
+	
+}

@@ -1,0 +1,17 @@
+package vehicleFactory;
+import luxuryVehicleFactory.LuxuryVehicle;
+import vehicles.*;
+
+public interface VehicleFactory {
+	LuxuryVehicle luxury;
+	public void getVehicle(String input) {
+		switch(input) {
+			case "BMW":
+				luxury = new Bmw();
+				System.out.println(luxury.Cost());
+				break;
+			case "SWIFT":
+				
+		}
+	}
+}
