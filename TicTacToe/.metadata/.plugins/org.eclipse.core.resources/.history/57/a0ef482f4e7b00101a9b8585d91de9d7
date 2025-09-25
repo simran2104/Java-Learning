@@ -1,0 +1,15 @@
+package main;
+
+public class Board {
+	char player1Symbol;
+	char playyer2Symbol;
+	int count;
+	int boardSize;
+	
+	public Board(char symbol1, char symbol2) {
+		this.player1Symbol = symbol1;
+		this.playyer2Symbol = symbol2;
+		this.boardSize = 3;
+		this.count = 0;
+	}
+}

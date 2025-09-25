@@ -1,0 +1,8 @@
+package BinaryTree;
+
+public class BinaryTreeUse {
+	
+	public static void main(String[] args) {
+		BinaryTreeNode<Integer> root = new BinaryTreeNode
+	}
+}

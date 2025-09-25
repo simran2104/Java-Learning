@@ -1,0 +1,27 @@
+package BinaryTree;
+import java.util.Scanner;
+
+public class BinaryTreeUse {
+	
+	public static BinaryTreeNode<Integer> takeInput(Scanner sc) {
+		System.out.println("Enter the Root data: ");
+		int rootData = sc.nextInt();
+		if(rootData == -1) {
+			return null;
+		}
+		BinaryTreeNode<Integer> root = new BinaryTreeNode<>(rootData);
+		root.left = takeInput(sc);
+		root.right = takeInput(sc);
+		return root;
+	}
+	
+	public static void printRecursively(BinaryTreeNode<Integer> root) {
+		
+	}
+	
+	public static void main(String[] args) {
+		Scanner sc  = new Scanner(System.in);
+		BinaryTreeNode<Integer> root = takeInput(sc);
+		printRecursively(root);
+	}
+}

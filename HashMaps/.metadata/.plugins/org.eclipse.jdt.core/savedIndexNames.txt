@@ -1,0 +1,4 @@
+INDEX VERSION 1.134+H:\Projects\JAVA-LEARNING\HashMaps\.metadata\.plugins\org.eclipse.jdt.core
+582329991.index
+3349589691.index
+1865797976.index

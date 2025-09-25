@@ -1,0 +1,22 @@
+package main;
+import java.util.Scanner;
+
+public class TicTacToe {
+	Player player1;
+	Player player2;
+	Board board;
+	
+	public void startGame() {
+		
+	}
+	
+	private Player takePlayerInput(int num) {
+		Scanner sc = new Scanner(System.in);
+		System.out.println("Enter Player - " + num + "Name: ");
+		String name = sc.next();
+		System.out.println("Enter Player - " + num + "Symbol: ");
+		char symbol = sc.next().charAt(0);
+		Player player = new Player(name, symbol);
+		return player;
+	}
+}

@@ -1,0 +1,8 @@
+package main;
+
+public class TrieUse {
+	Trie trie = new Trie();
+	
+	trie.add("Simran");
+	
+}

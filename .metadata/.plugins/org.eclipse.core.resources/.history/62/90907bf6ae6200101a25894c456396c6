@@ -1,0 +1,25 @@
+package tree;
+import java.util.*;
+
+public class TreeUse {
+	public TreeNode<Integer> takeInput(Scanner sc) {
+		System.out.println("Enter the Node: ");
+		int n = sc.nextInt();
+		TreeNode<Integer> root =  new TreeNode<>(n);
+		System.out.println("Enter the no. of children: ");
+		int size = sc.nextInt();
+		for(int i=0; i<size; i++) {
+			root.children.add(takeInput(sc));
+		}
+		return root;
+	}
+	public void print(TreeNode<Integer> root) {
+		
+	}
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+		System.out.println("Enter all the nodes of the Tree: ");
+		TreeNode<Integer> root = takeInput(sc);
+		print(root);
+	}
+}

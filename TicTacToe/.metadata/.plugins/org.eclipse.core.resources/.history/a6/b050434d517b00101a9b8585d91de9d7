@@ -1,0 +1,29 @@
+package main;
+
+public class Board {
+	char player1Symbol;
+	char playyer2Symbol;
+	int count;
+	int boardSize;
+	char[][] board;
+	
+	public final static int PLAYER_1_WINS = 1;
+	public final static int PLAYER_2_WINS = 2;
+	public final static int DRAW = 3;
+	public final static int INVALID = 4;
+	public final static int INCOMPLETE = 5;
+	
+	
+	public Board(char symbol1, char symbol2) {
+		this.player1Symbol = symbol1;
+		this.playyer2Symbol = symbol2;
+		this.boardSize = 3;
+		this.count = 0;
+		
+		for(int i=0; i<boardSize; i++) {
+			for(int j=0; j<boardSize; j++) {
+				board[i][j] = ' ';
+			}
+		}
+	}
+}

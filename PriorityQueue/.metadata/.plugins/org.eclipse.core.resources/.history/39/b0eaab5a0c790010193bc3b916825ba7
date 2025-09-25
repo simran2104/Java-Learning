@@ -1,0 +1,38 @@
+package main;
+import java.util.*;
+public class MinHeap {
+	ArrayList<Integer> minHeap;
+	int size;
+	
+	public MinHeap() {
+		minHeap = new ArrayList<>();
+		size = 0;
+	}
+	
+	public int getMin() {
+		if(size > 0) {
+			return minHeap.get(0);
+		}
+		return -1;
+	}
+	
+	public void insert(int num) {
+		// Add element to minHeap as per CBT property
+		
+		minHeap.add(num);
+		
+		// Adjust new element to its position as be heap property
+		int index = size;
+		while((index-1)/2 > minHeap.get(index)) {
+			int temp = minHeap.get(index);
+			minHeap.set(index, minHeap.get((index-1)/2))
+			index = (index-1)/2;
+		}
+		
+		size++;
+	}
+	
+	public void removeMin(int num) {
+		
+	}
+}

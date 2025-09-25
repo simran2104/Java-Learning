@@ -1,0 +1,13 @@
+package main;
+
+public class TrieNode {
+	char data;
+	TrieNode[] children;
+	boolean isTerminating;
+	
+	public TrieNode(char chr) {
+		this.data = chr;
+		children = new char[26];
+		isTerminating = false;
+	}
+}

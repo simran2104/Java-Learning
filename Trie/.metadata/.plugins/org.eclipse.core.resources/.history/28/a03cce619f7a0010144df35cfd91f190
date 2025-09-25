@@ -1,0 +1,27 @@
+package main;
+
+public class Trie {
+	
+	TrieNode root;
+	
+	public Trie() {
+		root = new TrieNode('\0');
+	}
+	
+	private void add(TrieNode root, String word) {
+		if(word.length() == 0) {
+			root.isTerminating = true;
+			return;
+		}
+		
+		int index = word.charAt(0) - 'A';
+		TrieNode child = root.children[index];
+		if() {
+			
+		}
+	}
+	
+	public void add(String word) {
+		add(root, word);
+	}
+}

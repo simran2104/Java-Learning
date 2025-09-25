@@ -1,0 +1,82 @@
+package main;
+import java.util.PriorityQueue;
+
+public class HeapUse {
+	public static void mainTemp(String[] args) {
+		MinHeap minHeap = new MinHeap();
+		MaxHeap maxHeap = new MaxHeap();
+		
+		minHeap.insert(10);
+		System.out.println("After Insertion: " + minHeap.getMin());
+		minHeap.insert(5);
+		System.out.println("After Insertion: " + minHeap.getMin());
+		minHeap.insert(34);
+		System.out.println("After Insertion: " + minHeap.getMin());
+		minHeap.removeMin();
+		System.out.println("After Deletion: " + minHeap.getMin());
+		minHeap.insert(1);
+		System.out.println("After Insertion: " + minHeap.getMin());
+		minHeap.insert(45);
+		System.out.println("After Insertion: " + minHeap.getMin());
+		minHeap.removeMin();
+		System.out.println("After Deletion: " + minHeap.getMin());
+		minHeap.insert(2);
+		System.out.println("After Insertion: " + minHeap.getMin());
+		minHeap.removeMin();
+		System.out.println("After Deletion: " + minHeap.getMin());
+		
+		System.out.println("MaxHeap: ");
+		
+		
+
+		maxHeap.insert(10);
+		System.out.println("After Insertion: " + maxHeap.getMax());
+		maxHeap.insert(5);
+		System.out.println("After Insertion: " + maxHeap.getMax());
+		maxHeap.insert(34);
+		System.out.println("After Insertion: " + maxHeap.getMax());
+		maxHeap.removeMax();
+		System.out.println("After Deletion: " + maxHeap.getMax());
+		maxHeap.insert(1);
+		System.out.println("After Insertion: " + maxHeap.getMax());
+		maxHeap.insert(45);
+		System.out.println("After Insertion: " + maxHeap.getMax());
+		maxHeap.removeMax();
+		System.out.println("After Deletion: " + maxHeap.getMax());
+		maxHeap.insert(2);
+		System.out.println("After Insertion: " + maxHeap.getMax());
+		maxHeap.removeMax();
+		System.out.println("After Deletion: " + maxHeap.getMax());
+	}
+	
+	public static void sortKSortedArray(int[] arr, int k) {
+
+		PriorityQueue<Integer> queue = new PriorityQueue<>();
+		
+		int i = 0;
+		for(; i<k; i++) {
+			queue.add(arr[i]);
+		}
+		
+		for(; i<arr.length; i++) {
+			arr[i-k] = queue.remove();
+			queue.add(arr[i]);
+		}
+		
+		for(int j = arr.length-k; j < arr.length; j++) {
+			arr[j] = queue.remove();
+		}
+		
+	}
+	public static void main(String[] args) {
+		
+		int[] arr = {2 ,12 ,9 ,16, 10, 5, 3, 20, 25, 11, 1, 8, 6 };
+		
+		sortKSortedArray(arr, 3);
+		
+		for(int ele: arr) {
+			System.out.print(ele + " ");
+		}
+		
+	}
+}

@@ -1,0 +1,28 @@
+package main;
+
+public class MapUse {
+
+	public static void main(String[] args) {
+		Map<String, Integer> map = new Map<>();
+		
+		map.insert("Simran", 1);
+		map.insert("Simran", 2);
+		System.out.println("Simran Value: "+ map.getValue("Simran"));
+		map.insert("Simran", 45);
+		System.out.println("Simran Updated Value: "+ map.getValue("Simran"));
+		map.insert("Rahul", 12);
+		map.insert("Aditya", 12);
+		map.insert("abc", 12);
+		map.insert("def", 12);
+		map.insert("fgh", 12);
+		map.insert("ghi", 12);
+		map.insert("ijk", 12);
+		map.insert("left", 12);
+		map.insert("Ram", 14);
+		System.out.println("Ram Value: "+ map.getValue("Ram"));
+		map.removeKey("Ram");
+		System.out.println("Ram Deleted Value: "+ map.getValue("Ram"));
+
+		System.out.println("Map Size: "+ map.size());
+	}
+}

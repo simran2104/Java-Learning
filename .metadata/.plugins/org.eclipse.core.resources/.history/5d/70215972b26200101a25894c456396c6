@@ -1,0 +1,46 @@
+package tree;
+import java.util.*;
+
+public class TreeUse {
+	public static TreeNode<Integer> takeInput(Scanner sc) {
+		System.out.println("Enter the Node: ");
+		int n = sc.nextInt();
+		TreeNode<Integer> root =  new TreeNode<>(n);
+		System.out.println("Enter the no. of children for: " + n);
+		int size = sc.nextInt();
+		for(int i=0; i<size; i++) {
+			root.children.add(takeInput(sc));
+		}
+		return root;
+	}
+	public static void print(TreeNode<Integer> root) {
+		String s = root.data + ": ";
+		for(int i=0; i<root.children.size(); i++) {
+			s = s + root.children.get(i).data + ",";
+		}
+		System.out.println(s);
+		for(int i=0; i<root.children.size(); i++) {
+			print(root.children.get(i));
+		}
+	}
+	
+	public static TreeNode<Integer> takeInputLevelWise() {
+		Scanner sc = new Scanner(System.in);
+		
+		System.out.println("Enter the root Node: ");
+		int rootdata = sc.nextInt();
+		Queue<LinkedList<TreeNode<Integer>>> queue = new LinkedList<>();
+		TreeNode<Integer> root = new TreeNode<>(rootdata);
+		queue.add(root);
+	}
+	
+	public static void main(String[] args) {
+//		Scanner sc = new Scanner(System.in);
+//		System.out.println("Enter all the nodes of the Tree: ");
+//		TreeNode<Integer> root = takeInput(sc);
+//		print(root);
+		
+		TreeNode<Integer> root = takeInputLevelWise();
+		print(root);
+	}
+}

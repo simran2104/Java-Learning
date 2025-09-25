@@ -1,0 +1,12 @@
+package main;
+
+public class Fabonacci {
+	
+	public int fabonacci(int num) {
+		if(num == 0 || num == 1) {
+			return num;
+		}
+		
+		return fabonacci(num-1) + fabonacci(num-2);
+	}
+}

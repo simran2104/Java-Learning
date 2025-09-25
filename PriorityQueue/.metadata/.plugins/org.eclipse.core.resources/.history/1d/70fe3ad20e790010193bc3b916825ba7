@@ -1,0 +1,63 @@
+package main;
+import java.util.*;
+public class MinHeap {
+	ArrayList<Integer> minHeap;
+	int size;
+	
+	public MinHeap() {
+		minHeap = new ArrayList<>();
+		size = -1;
+	}
+	
+	public int getMin() {
+		if(size >= 0) {
+			return minHeap.get(0);
+		}
+		return -1;
+	}
+	
+	public void insert(int num) {
+		size++;
+		// Add element to minHeap as per CBT property
+		minHeap.add(size, num);
+		
+		// Adjust new element to its position as be heap property
+		int index = size;
+		while(index > 0 && (index-1)/2 >= 0 && minHeap.get((index-1)/2) > minHeap.get(index)) {
+			int temp = minHeap.get(index);
+			minHeap.set(index, minHeap.get((index-1)/2));
+			minHeap.set((index-1)/2, temp);
+			index = (index-1)/2;
+		}
+	}
+	
+	public void removeMin(int num) {
+		if(size < 0) return;
+		
+		// Remove the last element
+		int deletedEle = minHeap.remove(size);
+		size--;
+		
+		if(size < 0) return;
+		
+		// Add the last element to first element
+		minHeap.set(0, deletedEle);
+		
+		// Adjust the first element
+		
+		int index = 0;
+		while(index <= size && (size >= 2*index+1 && minHeap.get(index) > minHeap.get(2*index+1) || size >= 2*index+2 && minHeap.get(index) > minHeap.get(2*index+2))) {
+			if(size >= 2*index+1 && minHeap.get(index) > minHeap.get(2*index+1)) {
+				int temp = minHeap.get(index);
+				minHeap.set(index, minHeap.get(2*index+1));
+				minHeap.set(2*index+1, temp);
+				index = 2*index+1;
+			} else {
+				int temp = minHeap.get(index);
+				minHeap.set(index, minHeap.get(2*index+2));
+				minHeap.set(2*index+2, temp);
+				index = 2*index+2;
+			}
+		}
+	}
+}

@@ -1,0 +1,84 @@
+package BinaryTree;
+import java.util.Scanner;
+import java.util.Queue;
+import java.util.LinkedList;
+
+public class BinaryTreeUse {
+	
+	public static BinaryTreeNode<Integer> takeInput(Scanner sc) {
+		System.out.println("Enter the Root data: ");
+		int rootData = sc.nextInt();
+		if(rootData == -1) {
+			return null;
+		}
+		BinaryTreeNode<Integer> root = new BinaryTreeNode<>(rootData);
+		root.left = takeInput(sc);
+		root.right = takeInput(sc);
+		return root;
+	}
+	
+	public static void printRecursively(BinaryTreeNode<Integer> root) {
+		if(root == null) {
+			return;
+		}
+		String s = root.data + ": ";
+		if(root.left != null) {
+			s = s + "L: "+ root.left.data + ", ";
+		}
+		if(root.right != null) {
+			s = s + "R: "+ root.right.data;
+		}
+		System.out.println(s);
+		printRecursively(root.left);
+		printRecursively(root.right);
+	}
+	
+	public static BinaryTreeNode<Integer> takeInputIteratively() {
+		Scanner sc = new Scanner(System.in);
+		Queue<BinaryTreeNode<Integer>> queue = new LinkedList<>();
+		
+		System.out.println("Enter the Root Node or -1 if null: ");
+		int rootData = sc.nextInt();
+		if(rootData == -1) {
+			sc.close();
+			return null;
+		}
+		BinaryTreeNode<Integer> root = new BinaryTreeNode<>(rootData);
+		queue.add(root);
+		
+		while(!queue.isEmpty()) {
+			BinaryTreeNode<Integer> node = queue.poll();
+			System.out.println("Enter the Left Node of " + node.data + " or -1 if null: ");
+			int leftNodeData = sc.nextInt();
+			if(leftNodeData != -1) {
+				BinaryTreeNode<Integer> leftNode = new BinaryTreeNode<>(leftNodeData);
+				queue.add(leftNode);
+				node.left = leftNode;
+			}
+			System.out.println("Enter the right Node of " + node.data + " or -1 if null: ");
+			int rightNodeData = sc.nextInt();
+			if(rightNodeData != -1) {
+				BinaryTreeNode<Integer> rightNode = new BinaryTreeNode<>(rightNodeData);
+				queue.add(rightNode);
+				node.right = rightNode;
+			}
+		}
+		sc.close();
+		return root;
+	}
+	
+	public static void printLevelWise(BinaryTreeNode<Integer> root) {
+		
+	}
+	
+	public static void main(String[] args) {
+//		Scanner sc  = new Scanner(System.in);
+//		BinaryTreeNode<Integer> root = takeInput(sc);
+//		sc.close();
+//		printRecursively(root);
+		
+		BinaryTreeNode<Integer> root = takeInputIteratively();
+		
+		
+	}
+}

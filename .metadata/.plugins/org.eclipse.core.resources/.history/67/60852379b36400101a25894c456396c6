@@ -1,0 +1,16 @@
+package BinaryTree;
+
+public class BinaryTreeUse {
+	
+	public static void main(String[] args) {
+		BinaryTreeNode<Integer> root = new BinaryTreeNode<>(1);
+		BinaryTreeNode<Integer> left = new BinaryTreeNode<>(2);
+		BinaryTreeNode<Integer> right = new BinaryTreeNode<>(3);
+		root.left = left;
+		root.right = right;
+		System.out.println(root.data);
+		System.out.println(root.left.data);
+		System.out.println(root.right.data);
+		
+	}
+}

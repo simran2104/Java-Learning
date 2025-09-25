@@ -1,0 +1,64 @@
+package main;
+import java.util.Scanner;
+
+public class TicTacToe {
+	Player player1;
+	Player player2;
+	Board board;
+	
+	public void startGame() {
+		Scanner sc = new Scanner(System.in);
+		System.out.println("Let's start the game!");
+		// Get Players
+		player1 = takePlayerInput(1);
+		player2 = takePlayerInput(2);
+		while(player1.getSymbol() == player2.getSymbol()) {
+			System.out.println("Same Symbol entered as Player 1, Enter again!");
+			player2.setSymbol(sc.next().charAt(0));
+		}
+		// Start Board
+		board = new Board(player1.getSymbol(), player2.getSymbol());
+		
+		boolean player1Turn = true;
+		int status = Board.INCOMPLETE;
+		
+		while() {
+			if(player1Turn) {
+				System.out.println(player1.getName() + ", Its your Turn!");
+				System.out.println("Enter X Value: ");
+				int x = sc.nextInt();
+				System.out.println("Enter Y Value: ");
+				int y = sc.nextInt();
+				status = board.move(player1.getSymbol(), x, y);
+				if(status == Board.INVALID) {
+					System.out.println("Coordinates are Invalid or occupied, Please enter again!");
+				} else {
+					player1Turn = false;
+				}
+			} else {
+				System.out.println(player2.getName() + ", Its your Turn!");
+				System.out.println("Enter X Value: ");
+				int x = sc.nextInt();
+				System.out.println("Enter Y Value: ");
+				int y = sc.nextInt();
+				status = board.move(player2.getSymbol(), x, y);
+				if(status == Board.INVALID) {
+					System.out.println("Coordinates are Invalid or occupied, Please enter again!");
+				} else {
+					player1Turn = true;
+				}
+			}
+		}
+	}
+	
+	private Player takePlayerInput(int num) {
+		Scanner sc = new Scanner(System.in);
+		System.out.println("Enter Player - " + num + "Name: ");
+		String name = sc.next();
+		System.out.println("Enter Player - " + num + "Symbol: ");
+		char symbol = sc.next().charAt(0);
+		Player player = new Player(name, symbol);
+		sc.close();
+		return player;
+	}
+}

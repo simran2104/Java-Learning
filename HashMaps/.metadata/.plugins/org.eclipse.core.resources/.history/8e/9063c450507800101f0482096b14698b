@@ -1,0 +1,16 @@
+package main;
+
+public class MapUse {
+
+	public static void main(String[] args) {
+		Map<String, Integer> map = new Map<>();
+		
+		map.insert("Simran", 1);
+		map.insert("Simran", 2);
+		map.insert("Simran", 45);
+		map.insert("Rahul", 12);
+		map.insert("Aditya", 12);
+		map.insert("Ram", 14);
+		
+	}
+}

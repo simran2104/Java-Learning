@@ -1,0 +1,78 @@
+package main;
+import java.util.*;
+public class MaxHeap {
+	ArrayList<Integer> minHeap;
+	int size;
+	
+	public MaxHeap() {
+		minHeap = new ArrayList<>();
+		size = -1;
+	}
+	
+	public int getMin() {
+		if(size >= 0) {
+			return minHeap.get(0);
+		}
+		return -1;
+	}
+	
+	public void insert(int num) {
+		size++;
+		// Add element to minHeap as per CBT property
+		minHeap.add(size, num);
+		
+		// Adjust new element to its position as be heap property
+		int index = size;
+		while(index > 0 && (index-1)/2 >= 0 && minHeap.get((index-1)/2) > minHeap.get(index)) {
+			int temp = minHeap.get(index);
+			minHeap.set(index, minHeap.get((index-1)/2));
+			minHeap.set((index-1)/2, temp);
+			index = (index-1)/2;
+		}
+	}
+	
+	public void removeMin() {
+		if(size < 0) return;
+		
+		// Remove the last element
+		int deletedEle = minHeap.remove(size);
+		size--;
+		
+		if(size < 0) return;
+		
+		// Add the last element to first element
+		minHeap.set(0, deletedEle);
+		
+		// Adjust the first element
+		
+		int index = 0;
+		while(true) {
+			
+			int left = 2*index+1;
+			int right = 2*index+2;
+			int smallest = index;
+			
+			int leftSmallest = index;
+			int rightSmallest = index;
+			
+			if(left <= size && minHeap.get(left) < minHeap.get(index)) {
+				leftSmallest = left;
+				smallest = left;
+			}
+			if(right <= size && minHeap.get(right) < minHeap.get(index)) {
+				rightSmallest = right;
+				smallest = right;
+			}
+			if(index == smallest) {
+				break;
+			} else if(index != leftSmallest && index != rightSmallest) {
+				if(minHeap.get(leftSmallest) > minHeap.get(rightSmallest)) smallest = rightSmallest;
+				else smallest = leftSmallest;
+			}
+			int temp = minHeap.get(index);
+			minHeap.set(index, minHeap.get(smallest));
+			minHeap.set(smallest, temp);
+			index = smallest;
+		}
+	}
+}

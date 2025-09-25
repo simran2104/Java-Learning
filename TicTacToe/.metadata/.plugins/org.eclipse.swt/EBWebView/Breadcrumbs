@@ -1,0 +1,78 @@
+0:21:18 Microsoft.BrowserList.AddBrowser
+0:21:18 Browser16 Insert active Tab16 at 0
+0:21:18 Tab16 StartNav86 #auto_toplevel
+0:21:18 Tab16 StartNav87 #typed
+0:21:18 Tab16 FinishNav86
+0:21:18 Tab16 PageLoad
+0:21:18 Tab16 FinishNav87
+0:21:18 Tab16 PageLoad
+0:21:19 Tab16 StartNav88 #typed
+0:21:19 Tab16 FinishNav88
+0:21:19 Tab16 PageLoad
+0:21:22 Tab16 StartNav89 #typed
+0:21:22 Tab16 FinishNav89
+0:21:22 Tab16 PageLoad
+0:21:22 Tab16 StartNav90 #typed
+0:21:22 Tab16 FinishNav90
+0:21:22 Tab16 PageLoad
+0:21:23 Tab16 StartNav91 #typed
+0:21:23 Tab16 FinishNav91
+0:21:23 Tab16 PageLoad
+0:21:24 Tab16 StartNav92 #typed
+0:21:24 Tab16 FinishNav92
+0:21:24 Tab16 PageLoad
+0:21:25 Tab16 StartNav93 #typed
+0:21:25 Tab16 FinishNav93
+0:21:25 Tab16 PageLoad
+0:21:27 Tab16 StartNav94 #typed
+0:21:27 Tab16 FinishNav94
+0:21:27 Tab16 PageLoad
+0:21:28 Tab16 StartNav95 #typed
+0:21:28 Tab16 FinishNav95
+0:21:28 Tab16 PageLoad
+0:21:28 Tab16 StartNav96 #typed
+0:21:28 Tab16 FinishNav96
+0:21:28 Tab16 PageLoad
+0:21:31 Tab16 StartNav97 #typed
+0:21:31 Tab16 FinishNav97
+0:21:31 Tab16 PageLoad
+0:21:33 Tab16 StartNav98 #typed
+0:21:34 Tab16 FinishNav98
+0:21:34 Tab16 PageLoad
+0:21:34 Tab16 StartNav99 #typed
+0:21:35 Tab16 FinishNav99
+0:21:35 Tab16 PageLoad
+0:21:38 Tab16 StartNav100 #typed
+0:21:38 Tab16 FinishNav100
+0:21:38 Tab16 PageLoad
+0:21:45 Tab16 StartNav101 #typed
+0:21:45 Tab16 FinishNav101
+0:21:45 Tab16 PageLoad
+0:21:58 Tab16 StartNav102 #typed
+0:21:58 Tab16 FinishNav102
+0:21:58 Tab16 PageLoad
+0:22:03 Tab16 StartNav103 #typed
+0:22:03 Tab16 FinishNav103
+0:22:03 Tab16 PageLoad
+0:22:05 Tab16 StartNav104 #typed
+0:22:05 Tab16 FinishNav104
+0:22:05 Tab16 PageLoad
+0:22:07 Tab16 StartNav105 #typed
+0:22:07 Tab16 FinishNav105
+0:22:07 Tab16 PageLoad
+0:22:17 Tab16 StartNav106 #typed
+0:22:17 Tab16 FinishNav106
+0:22:17 Tab16 PageLoad
+0:22:21 Tab16 StartNav107 #typed
+0:22:21 Tab16 FinishNav107
+0:22:21 Tab16 PageLoad
+0:22:26 Tab16 StartNav108 #typed
+0:22:26 Tab16 FinishNav108
+0:22:26 Tab16 PageLoad
+0:22:26 Tab16 StartNav109 #typed
+0:22:26 Tab16 FinishNav109
+0:22:26 Tab16 PageLoad
+0:22:31 Tab16 StartNav110 #typed
+0:22:31 Tab16 FinishNav110
+0:22:31 Tab16 PageLoad
+0:23:40 Microsoft.UnloadController.IsUnclosableApp_IsNotWebApp

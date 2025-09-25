@@ -1,0 +1,80 @@
+package Arrays;
+
+import java.util.*;
+
+public class Numbers {
+	public static void printAllDivisors(int num) {
+//		Set<Integer> set = new HashSet<>();
+		
+		for(int i=1; i*i <= num; i++) {
+			if(num%i ==0) {
+				System.out.print(i +", ");
+				System.out.print(num/i +", ");
+			}
+		}
+	}
+	public static List<List<Integer>> countFrequencies(int[] nums) {
+        Map<Integer, Integer> map = new HashMap<>();
+        List<List<Integer>> res = new ArrayList<>();
+
+        for(int i=0; i<nums.length; i++) {
+            if(map.containsKey(nums[i])){
+                map.put(nums[i], map.get(nums[i])+1);
+            } else {
+                map.put(nums[i], 1);
+            }
+        }
+
+        map.forEach((key, value) -> {
+        	List<Integer> resList = new ArrayList<>();
+        	resList.add(key);
+        	resList.add(value);
+            res.add(resList);
+        });
+        
+        Map.Entry<Integer, Integer> maxKey = map.entrySet().stream().max(Map.Entry.comparingByValue()).get();
+        System.out.println("Key with Maximum occurence: "+ maxKey.getKey() + " "+ maxKey.getValue());
+
+        return res;
+    }
+	
+	public static void printSubArrayWithMaxSum(int[] arr) {
+		
+		int sum =0;
+		int max= Integer.MIN_VALUE;
+		
+		int startIndex = 0;
+		int lastIndex = arr.length - 1;
+		int maxStartIndex = 0;
+		int maxLastIndex = arr.length-1;
+		
+		for(int i=0; i<arr.length; i++) {
+			if(sum == 0) {
+				startIndex = i;
+			}
+			sum += arr[i];
+			if(sum > max) {
+				max = sum;
+				maxStartIndex = startIndex;
+				maxLastIndex = lastIndex;
+			}
+			if(sum<0) {
+				sum = 0;
+				lastIndex = i;
+			}
+		}
+		
+		System.out.println(maxStartIndex + " " + maxLastIndex + " "+ max);
+	}
+	
+	public static void main(String[] args) {
+//		Scanner sc = new Scanner(System.in);
+//		System.out.println("Enter the number whose divisors need to find: ");
+//		int num = sc.nextInt();
+//		printAllDivisors(num);
+		int[] list = new int[] {-2, -3, -7, -2, -10, -4};
+//		System.out.println(countFrequencies(list));
+		
+		printSubArrayWithMaxSum(list);
+	}
+}

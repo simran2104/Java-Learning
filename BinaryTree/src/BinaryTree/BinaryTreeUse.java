@@ -1,0 +1,177 @@
+package BinaryTree;
+import java.util.Scanner;
+import java.util.Queue;
+import java.util.LinkedList;
+
+public class BinaryTreeUse {
+	
+	public static BinaryTreeNode<Integer> takeInput(Scanner sc) {
+		System.out.println("Enter the Root data: ");
+		int rootData = sc.nextInt();
+		if(rootData == -1) {
+			return null;
+		}
+		BinaryTreeNode<Integer> root = new BinaryTreeNode<>(rootData);
+		root.left = takeInput(sc);
+		root.right = takeInput(sc);
+		return root;
+	}
+	
+	public static void printRecursively(BinaryTreeNode<Integer> root) {
+		if(root == null) {
+			return;
+		}
+		String s = root.data + ": ";
+		if(root.left != null) {
+			s = s + "L: "+ root.left.data + ", ";
+		}
+		if(root.right != null) {
+			s = s + "R: "+ root.right.data;
+		}
+		System.out.println(s);
+		printRecursively(root.left);
+		printRecursively(root.right);
+	}
+	
+	public static BinaryTreeNode<Integer> takeInputIteratively() {
+		Scanner sc = new Scanner(System.in);
+		Queue<BinaryTreeNode<Integer>> queue = new LinkedList<>();
+		
+		System.out.println("Enter the Root Node or -1 if null: ");
+		int rootData = sc.nextInt();
+		if(rootData == -1) {
+			sc.close();
+			return null;
+		}
+		BinaryTreeNode<Integer> root = new BinaryTreeNode<>(rootData);
+		queue.add(root);
+		
+		while(!queue.isEmpty()) {
+			BinaryTreeNode<Integer> node = queue.poll();
+			System.out.println("Enter the Left Node of " + node.data + " or -1 if null: ");
+			int leftNodeData = sc.nextInt();
+			if(leftNodeData != -1) {
+				BinaryTreeNode<Integer> leftNode = new BinaryTreeNode<>(leftNodeData);
+				queue.add(leftNode);
+				node.left = leftNode;
+			}
+			System.out.println("Enter the right Node of " + node.data + " or -1 if null: ");
+			int rightNodeData = sc.nextInt();
+			if(rightNodeData != -1) {
+				BinaryTreeNode<Integer> rightNode = new BinaryTreeNode<>(rightNodeData);
+				queue.add(rightNode);
+				node.right = rightNode;
+			}
+		}
+		sc.close();
+		return root;
+	}
+	
+	public static void printLevelWise(BinaryTreeNode<Integer> root) {
+		if(root == null) {
+			return;
+		}
+		Queue<BinaryTreeNode<Integer>> queue = new LinkedList<>();
+		queue.add(root);
+		
+		while(!queue.isEmpty()) {
+			BinaryTreeNode<Integer> node = queue.poll();
+			String s = node.data + ": ";
+			if(node.left != null) {
+				queue.add(node.left);
+				s = s + "L: "+ node.left.data + ", ";
+			}
+			if(node.right != null) {
+				queue.add(node.right);
+				s = s + "R: "+ node.right.data;
+			}
+			System.out.println(s);
+		}
+	}
+	
+	public static int countNoOfNodes(BinaryTreeNode<Integer> root) {
+		if(root == null) {
+			return 0;
+		}
+		
+		int count = 1;
+		count = count + countNoOfNodes(root.left);
+		count = count + countNoOfNodes(root.right);
+		return count;
+	}
+	
+	public static int heightOfTree(BinaryTreeNode<Integer> root) {
+		if(root == null) {
+			return 0;
+		}
+		int height = 1;
+		
+		int leftHeight = heightOfTree(root.left);
+		int rightHeight = heightOfTree(root.right);
+		
+		if(leftHeight > rightHeight) { 
+			height += leftHeight;
+		} else {
+			height += rightHeight;
+		}
+		return height;
+	}
+	
+	public static int diameterOfTree(BinaryTreeNode<Integer> root) {
+		if(root == null) {
+			return 0;
+		}
+		int option1 = heightOfTree(root.left) + heightOfTree(root.right);
+		int option2 = diameterOfTree(root.left);
+		int option3 = diameterOfTree(root.right);
+		
+		return Math.max(option1, Math.max(option2, option3));
+	}
+	
+	public static Pair<Integer, Integer> diameterBetter(BinaryTreeNode<Integer> root) {
+		if(root == null) {
+			Pair<Integer, Integer> res = new Pair<>(0, 0);
+			return res;
+		}
+		Pair<Integer, Integer> leftOutput = diameterBetter(root.left);
+		Pair<Integer, Integer> rightOutput = diameterBetter(root.right);
+		
+		int height = 1 + Math.max(leftOutput.first, rightOutput.first);
+		int option1 = leftOutput.first + rightOutput.first;
+		int option2 = leftOutput.second;
+		int option3 = rightOutput.second;
+		int diameter = Math.max(option1, Math.max(option2, option3));
+		
+		Pair<Integer, Integer> res = new Pair<>(height, diameter);
+		return res;
+		
+	}
+	
+	public static void InorderTraversal(BinaryTreeNode<Integer> root) {
+		if(root == null) {
+			return;
+		}
+		InorderTraversal(root.left);
+		System.out.print(root.data + " ");
+		InorderTraversal(root.right);
+	}
+	
+	public static void main(String[] args) {
+//		Scanner sc  = new Scanner(System.in);
+//		BinaryTreeNode<Integer> root = takeInput(sc);
+//		sc.close();
+//		printRecursively(root);
+		
+		BinaryTreeNode<Integer> root = takeInputIteratively();
+		printLevelWise(root);
+		
+		System.out.println("Total No. of Nodes in the tree is: " + countNoOfNodes(root));
+		System.out.println("Height of the tree is: " + heightOfTree(root));
+		System.out.println("Diameter of the tree is: " + diameterOfTree(root));
+		Pair<Integer, Integer> diameter = diameterBetter(root);
+		System.out.println("Diameter of the tree with less Complexity is: " + diameter.second);
+		System.out.println("Inorder Traversal of Tree is: ");
+		InorderTraversal(root);
+		
+	}
+}
